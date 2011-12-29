@@ -5,7 +5,7 @@
     "background_page": "background.html",
     "page_action" : {
         "default_icon" : "icon-16-dim.png",
-        "default_title" : "There's a 'sandwich' in this page!"
+        "default_title" : "Avro Keyboard"
     },
     "permissions": ["tabs", "http://*/*", "https://*/*" ],
     "icons" : {
