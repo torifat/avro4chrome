@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Background Page</title>
+    <script>
+        chrome.extension.onRequest.addListener(
+            function (request, sender, sendResponse) {
+                'use strict';
+                if (!!request.status) {
+                    chrome.pageAction.setIcon({tabId: sender.tab.id, path: 'icon-16.png'});
+                } else {
+                    chrome.pageAction.setIcon({tabId: sender.tab.id, path: 'icon-16-dim.png'});
+                }
+                chrome.pageAction.show(sender.tab.id);
+                sendResponse({});
+            }
+        );
+    </script>
+</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,26 @@
+{
+    "name": "Avro Keyboard",
+    "version": "1.0",
+    "description": "Official Avro Keyboard for Google Chrome",
+    "background_page": "background.html",
+    "page_action" : {
+        "default_icon" : "icon-16-dim.png",
+        "default_title" : "There's a 'sandwich' in this page!"
+    },
+    "permissions": ["tabs", "http://*/*", "https://*/*" ],
+    "icons" : {
+        "16" :  "icon-16.png",
+        "48" : "icon.png"
+    },
+    "content_scripts" : [
+      {
+        "matches" : [
+          "http://*/*",
+          "https://*/*"
+        ],
+        "js" : ["js/jquery-1.7.1.min.js", "js/avro-1.1-beta.min.js", "js/content.js"],
+        "run_at" : "document_end",
+        "all_frames" : true
+      }
+    ]
+}
