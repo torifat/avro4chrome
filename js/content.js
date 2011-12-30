@@ -29,7 +29,7 @@ function sendStatus(bangla) {
     'use strict';
     chrome.extension.sendRequest({status: bangla}, function (response) {
         if (response) {
-            console.log('Avro Switched');
+            // console.log('Avro Switched');
         }
     });
 }
