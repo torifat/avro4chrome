@@ -1,6 +1,6 @@
 {
     "name": "Avro Keyboard",
-    "version": "1.1",
+    "version": "1.2",
     "description": "Official Avro Keyboard for Google Chrome",
     "background_page": "background.html",
     "page_action" : {

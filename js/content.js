@@ -37,8 +37,13 @@ function sendStatus(bangla) {
 jQuery.noConflict();
 jQuery(function () {
     'use strict';
-    jQuery('textarea, input[type=text]').avro({'bangla': false}, function (isBangla) {
+    var callback = function (isBangla) {
         sendStatus(isBangla);
+    };
+
+    jQuery('textarea, input[type=text]').avro({'bangla': false}, callback);
+    jQuery('body').bind('DOMNodeInserted', function (e) {
+        jQuery(e.target).find('textarea, input[type=text]').avro({bangla: false}, callback);
     });
 
     jQuery('textarea, input[type=text]').on('blur', function () {
