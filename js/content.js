@@ -24,7 +24,7 @@
 	*****************************************************************************
 	=============================================================================
 */
-/*global jQuery, chrome, console */
+/*global jQuery, chrome, console, document, window */
 function sendStatus(bangla) {
     'use strict';
     chrome.extension.sendRequest({status: bangla}, function (response) {
@@ -41,9 +41,9 @@ jQuery(function () {
         sendStatus(isBangla);
     };
 
-    jQuery('textarea, input[type=text]').avro({'bangla': false}, callback);
-    jQuery('body').bind('DOMNodeInserted', function (e) {
-        jQuery(e.target).find('textarea, input[type=text]').avro({bangla: false}, callback);
+    jQuery('textarea, input[type=text]').avro({bangla: false}, callback);
+    jQuery(window).on('DOMNodeInserted', function (e) {
+        jQuery('textarea, input[type=text]').avro({bangla: false}, callback);
     });
 
     jQuery('textarea, input[type=text]').on('blur', function () {
