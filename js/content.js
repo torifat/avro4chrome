@@ -25,28 +25,27 @@
 	=============================================================================
 */
 /*global jQuery, chrome, console, document, window */
-function sendStatus(bangla) {
+(function ($) {
     'use strict';
-    chrome.extension.sendRequest({status: bangla}, function (response) {
-        if (response) {
-            // console.log('Avro Switched');
-        }
-    });
-}
 
-jQuery.noConflict();
-jQuery(function () {
-    'use strict';
-    var callback = function (isBangla) {
-        sendStatus(isBangla);
-    };
+    function sendStatus(bangla) {
+        chrome.extension.sendRequest({status: bangla});
+    }
 
-    jQuery('textarea, input[type=text]').avro({bangla: false}, callback);
-    jQuery(window).on('DOMNodeInserted', function (e) {
-        jQuery('textarea, input[type=text]').avro({bangla: false}, callback);
-    });
+    var selector = 'textarea, input[type=text]';
+    $.noConflict();
+    $(function () {
+        var callback = function (isBangla) {
+            sendStatus(isBangla);
+        };
 
-    jQuery('textarea, input[type=text]').on('blur', function () {
-        sendStatus(false);
+        $(selector).avro({bangla: false}, callback);
+        $(window).on('DOMNodeInserted', function () {
+            $(selector).avro({bangla: false}, callback);
+        });
+
+        $(selector).on('blur', function () {
+            sendStatus(false);
+        });
     });
-});
+}(jQuery));

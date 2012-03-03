@@ -1,6 +1,6 @@
 {
     "name": "Avro Keyboard",
-    "version": "1.3",
+    "version": "1.3.2",
     "description": "Official Avro Keyboard for Google Chrome",
     "background_page": "background.html",
     "page_action" : {
@@ -21,8 +21,8 @@
       {
         "matches": ["<all_urls>"],
         "js" : [
-            "js/jquery-1.7.1.min.js", 
-            "js/avro-1.1-beta.min.js", 
+            "js/jquery-1.7.1.min.js",
+            "js/avro-1.1.1-beta.min.js",
             "js/content.js"
         ],
         "run_at" : "document_end",
