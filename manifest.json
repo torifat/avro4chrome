@@ -3,6 +3,7 @@
     "version": "1.4",
     "description": "Official Avro Keyboard for Google Chrome",
     "background_page": "background.html",
+    "options_page": "options.html",
     "page_action" : {
         "default_icon" : "images/icon-16-dim.png",
         "default_title" : "Avro Keyboard"

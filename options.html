@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="icon" href="images/settings.png">
+    <link rel="stylesheet" href="css/chrome_shared.css">
+    <link rel="stylesheet" href="css/button.css">
+    <link rel="stylesheet" href="css/checkbox.css">
+    <link rel="stylesheet" href="css/list.css">
+    <link rel="stylesheet" href="css/options.css">
+</head>
+<body>
+    <div id="sidebar">
+        <h1>Options</h1>
+        <ul id="nav">
+            <li class="active">Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+        </ul>
+    </div>
+    <div id="main">
+        <div id="container">
+            <div class="page">
+                <h1>Item 1</h1>
+                <div class="table">
+                    <section>
+                        <h3>Sub Item 1</h3>
+                        <div>
+                            Hi there <button>Hello</button>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox">
+                                    <span>Checkbox</span>
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio">
+                                    <span>Radio Button</span>
+                                </label>
+                            </div>
+                            
+                            <div class="settings-list">
+                                <list role="listbox" tabindex="0" inlineeditable="">
+                                    <div class="spacer" style="height: 0px; "></div>
+                                    
+                                    <div role="listitem" class="deletable-item" draggable="true" lead="lead" selected="selected"><div><div class="title favicon-cell weakrtl" style="background-image: url(chrome://favicon/http://google.com/); " title="Google - google.com">Google</div><div class="url weakrtl"><div class="static-text" displaymode="static">http://google.com/</div><input type="text" displaymode="edit" required="" class="weakrtl"></div></div><button class="raw-button close-button custom-appearance"></button></div>
+                                    
+                                    <div class="deletable-item"><div><div class="title favicon-cell">Add a new page</div><div class="url"><input type="text" required=""></div></div><button class="raw-button close-button custom-appearance" disabled=""></button></div>
+                                    
+                                    
+                                    <div class="spacer" style="height: 0px;"></div>
+                                </list>
+                                <div>
+                                    <button>Use Current Pages</button>
+                                </div>
+                            </div>
+                            
+                            
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

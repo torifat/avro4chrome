@@ -1,0 +1,342 @@
+body {
+  font-family: Helvetica, sans-serif;
+}
+#sidebar {
+  -webkit-border-end: 1px solid #c6c9ce;
+  background: -webkit-linear-gradient(rgba(234, 238, 243, 0.2), #eaeef3),
+              -webkit-linear-gradient(left, #eaeef3, #eaeef3 97%, #d3d7db);
+  position: fixed;
+  bottom: 0;
+  /* We set both left and right for the sake of RTL. */
+  left: 0;
+  right: 0;
+  top: 0;
+  width: 216px;
+  z-index: 2;
+}
+
+#sidebar h1 {
+  -webkit-padding-end: 24px;
+  -webkit-user-select: none;
+  color: #53637d;
+  cursor: pointer;
+  font-size: 200%;
+  font-weight: normal;
+  margin: 0;
+  padding-bottom: 14px;
+  padding-top: 13px;
+  text-align: end;
+  text-shadow: white 0 1px 2px;
+}
+
+#nav {
+  -webkit-user-select: none;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+#nav li {
+  border-bottom: 1px solid transparent;
+  border-top: 1px solid transparent;
+  color: #426dc9;
+  cursor: pointer;
+  display: block;
+  font-size: 105%;
+  outline: none;
+  padding: 7px 0;
+  text-align: end;
+  text-shadow: white 0 1px 1px;
+  -webkit-padding-end: 24px;
+}
+
+#nav li:focus {
+  border-bottom: 1px solid #8faad9;
+  border-top: 1px solid #8faad9;
+}
+
+#nav li.active {
+  -webkit-box-shadow: 0px 1px 0px #f7f7f7;
+  background: -webkit-linear-gradient(left, #bbcee9, #bbcee9 97%, #aabedc);
+  border-bottom: 1px solid #8faad9;
+  border-top: 1px solid #8faad9;
+  color: black;
+  text-shadow: #bbcee9 0 1px 1px;
+}
+
+#main {
+  -webkit-box-align: stretch;
+  -webkit-padding-start: 216px;
+  margin: 0;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+#container {
+  box-sizing: border-box;
+  max-width: 888px;
+  min-width: 600px;
+  padding: 0 24px;
+}
+
+.page h1 {
+  -webkit-padding-end: 24px;
+  -webkit-user-select: none;
+  border-bottom: 1px solid #eeeeee;
+  color: #53637d;
+  font-size: 200%;
+  font-weight: normal;
+  margin: 0;
+  padding-bottom: 4px;
+  padding-top: 13px;
+  text-shadow: white 0 1px 2px;
+}
+
+section {
+  -webkit-box-orient: horizontal;
+  border-bottom: 1px solid #eeeeee;
+  display: -webkit-box;
+  margin-top: 17px;
+  padding-bottom: 20px;
+}
+
+div.page section:last-child {
+  border-bottom: none;
+}
+
+h3 {
+  font-size: 105%;
+  font-weight: bold;
+  margin: 20px 0 10px 0;
+}
+
+section > h3 {
+  margin: 0;
+  vertical-align: middle;
+  width: 130px;
+  -webkit-padding-end: 10px;
+}
+
+/* Display a collection of sections as a table in order to display nicely
+ * in multiple locales.
+ */
+.table {
+  display: table;
+  width: 100%;
+}
+
+.table > section {
+  display: table-row;
+}
+
+/* right table column containing settable options */
+.table > section > h3 + div,
+.table > section > h3 + table {
+  padding-bottom: 20px;
+}
+
+/* Setting the padding on the header so the alignment doesn't depend on the
+ * contents of the right table column.  */
+.table > section > h3 {
+  padding-top: 17px;
+}
+
+.table > section > * {
+  display: table-cell;
+  vertical-align: baseline;
+  border-bottom: 1px solid #eeeeee;
+}
+
+/* CHECKBOX, RADIO */
+/* TODO(estade): all of this should be merged into checkbox.css and then we can
+ * remove the print-preview hack. */
+div.checkbox,
+div.radio {
+  margin: 5px 0;
+}
+
+input[type=radio] ~ span,
+input[type=checkbox] ~ span {
+  color: #444;
+}
+
+.settings-list,
+.settings-list-empty {
+  border: 1px solid #d9d9d9;
+  border-radius: 2px;
+}
+
+.settings-list-empty {
+  background-color: #f4f4f4;
+  box-sizing: border-box;
+  min-height: 125px;
+  padding-left: 20px;
+  padding-top: 20px;
+}
+
+list > * {
+  -webkit-box-align: center;
+  -webkit-transition: 150ms background-color;
+  box-sizing: border-box;
+  border-radius: 0;
+  display: -webkit-box;
+  height: 32px;
+  border: none;
+  margin: 0;
+}
+
+list:not([disabled]) > :hover {
+  background-color: #e4ecf7;
+}
+
+/* TODO(stuartmorgan): Once this becomes the list style for other WebUI pages
+ * these rules can be simplified (since they wont need to override other rules).
+ */
+
+list:not([hasElementFocus]) > [selected],
+list:not([hasElementFocus]) > [lead][selected] {
+  background-color: #d0d0d0;
+  background-image: none;
+}
+
+list[hasElementFocus] > [selected],
+list[hasElementFocus] > [lead][selected],
+list:not([hasElementFocus]) > [selected]:hover,
+list:not([hasElementFocus]) > [selected][lead]:hover {
+  background-color: #bbcee9;
+  background-image: none;
+}
+
+list[hasElementFocus] > [lead],
+list[hasElementFocus] > [lead][selected] {
+  border-top: 1px solid #7892b4;
+  border-bottom: 1px solid #7892b4;
+}
+
+list[hasElementFocus] > [lead]:nth-child(2),
+list[hasElementFocus] > [lead][selected]:nth-child(2) {
+  border-top: 1px solid transparent;
+}
+
+list[hasElementFocus] > [lead]:nth-last-child(2),
+list[hasElementFocus] > [lead][selected]:nth-last-child(2) {
+  border-bottom: 1px solid transparent;
+}
+
+list[disabled] > [lead][selected],
+list[disabled]:focus > [lead][selected] {
+  border: none;
+}
+
+list[disabled] {
+  opacity: 0.6;
+}
+
+list > .heading {
+  color: #666666;
+}
+
+list > .heading:hover {
+  background-color: transparent;
+  border-color: transparent;
+}
+
+list .deletable-item {
+  -webkit-box-align: center;
+}
+
+list .deletable-item > :first-child {
+  -webkit-box-align: center;
+  -webkit-box-flex: 1;
+  -webkit-padding-end: 5px;
+  display: -webkit-box;
+}
+
+list .close-button {
+  -webkit-transition: 150ms opacity;
+  background-color: transparent;
+  /* TODO(stuartmorgan): Replace with real images once they are available. */
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAQAAAC1+jfqAAAAiElEQVR42r2RsQrDMAxEBRdl8SDcX8lQPGg1GBI6lvz/h7QyRRXV0qUULwfvwZ1tenw5PxToRPWMC52eA9+WDnlh3HFQ/xBQl86NFYJqeGflkiogrOvVlIFhqURFVho3x1moGAa3deMs+LS30CAhBN5nNxeT5hbJ1zwmji2k+aF6NENIPf/hs54f0sZFUVAMigAAAABJRU5ErkJggg==");
+  border: none;
+  display: block;
+  height: 16px;
+  opacity: 1;
+  width: 16px;
+}
+
+list > *:not(:hover):not([lead]) .close-button,
+list > *:not(:hover):not([selected]) .close-button,
+list:not([hasElementFocus]) > *:not(:hover) .close-button,
+list[disabled] .close-button,
+list .close-button[disabled] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+list .close-button:hover {
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAQAAAC1+jfqAAAAqklEQVR4XqWRMQ6DMAxF/1Fyilyj2SmIBUG5QcTCyJA5Z8jGhlBPgRi4TmoDraVmKFJlWYrlp/g5QfwRlwEVNWVa4WzfH9jK6kCkEkBjwxOhLghheMWMELUAqqwQ4OCbnE4LJnhr5IYdqQt4DJQjhe9u4vBBmnxHHNzRFkDGjHDo0VuTAqy2vAG4NkvXXDHxbGsIGlj3e835VFNtdugma/Jk0eXq0lP//5svi4PtO01oFfYAAAAASUVORK5CYII=");
+}
+
+list .close-button:active {
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAQAAAC1+jfqAAAARElEQVQoz2P4z4AfMlBLAYMdwxkghgEwD1XBGTC0g0sDIaYJECVwFqoChBK4WegKkJWArSJZAQErCDqSKG/iCyhaRhYA9LDIbULDzlIAAAAASUVORK5CYII=");
+}
+
+list .static-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+list[inlineeditable] input {
+  box-sizing: border-box;
+  margin: 0;
+  width: 100%;
+}
+
+list > :not([editing]) [displaymode="edit"] {
+  display: none;
+}
+
+list > [editing] [displaymode="static"] {
+  display: none;
+}
+
+list > [editing] input:invalid {
+  /* TODO(stuartmorgan): Replace with validity badge */
+  background-color: pink;
+}
+
+list .favicon-cell {
+  -webkit-margin-start: 7px;
+  -webkit-padding-start: 26px;
+  display: block;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.settings-list list {
+  min-height: 64px;
+}
+
+.settings-list .title {
+  width: 40%;
+}
+
+.settings-list .url {
+  -webkit-box-flex: 1;
+  color: #666;
+}
+
+.settings-list list > * {
+  max-width: 700px;
+}
+
+.settings-list > :last-child {
+  border-top: 1px solid #d9d9d9;
+  padding: 5px 10px;
+}
