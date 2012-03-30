@@ -2,47 +2,7 @@
 <html>
 <head>
     <title>Background Page</title>
-    <script>
-        chrome.extension.onRequest.addListener(
-            function (request, sender, sendResponse) {
-                'use strict';
-                if (!!request.status) {
-                    chrome.pageAction.setIcon({tabId: sender.tab.id, path: 'icon-16.png'});
-                } else {
-                    chrome.pageAction.setIcon({tabId: sender.tab.id, path: 'icon-16-dim.png'});
-                }
-                chrome.pageAction.show(sender.tab.id);
-                sendResponse({});
-            }
-        );
-		
-		// http://stackoverflow.com/questions/2399389/chrome-extension-first-run
-		function onInstall() {
-			console.log("Extension Installed");
-		}
-
-		function onUpdate() {
-			console.log("Extension Updated");
-		}
-
-		function getVersion() {
-			var details = chrome.app.getDetails();
-			return details.version;
-		}
-
-		// Check if the version has changed.
-		var currVersion = getVersion();
-		var prevVersion = localStorage['version']
-		if (currVersion != prevVersion) {
-			// Check if we just installed this extension.
-			if (typeof prevVersion == 'undefined') {
-				onInstall();
-			} else {
-				onUpdate();
-			}
-			localStorage['version'] = currVersion;
-		}
-    </script>
+    <script src="js/background.js"></script>
 </head>
 <body>
 </body>
