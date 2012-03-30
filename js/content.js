@@ -24,12 +24,12 @@
 	*****************************************************************************
 	=============================================================================
 */
-/*global jQuery, chrome, console, document, window */
+/*global jQuery, chrome, console, document, window, noty, localStorage */
 (function ($) {
     'use strict';
 
     function sendStatus(bangla) {
-        chrome.extension.sendRequest({status: bangla});
+        chrome.extension.sendRequest({method: 'handleStatus', status: bangla});
     }
 
     var selector = 'textarea, input[type=text]';
@@ -48,4 +48,28 @@
             sendStatus(false);
         });
     });
+
+    if(typeof localStorage.AvroKeyboard === 'undefined') {
+        localStorage.AvroKeyboard = true;
+        chrome.extension.sendRequest({method: 'popupCount'}, function(response) {
+            if (response.popupCount <= 3) {
+                $(window).load(function(){
+                    noty({
+                        text: "Avro Keyboard - Press <big>Ctrl+M</big> to switch keyboard",
+                        layout: "top",
+                        type: "success",
+                        textAlign: "center",
+                        easing: "swing",
+                        animateOpen: {"height":"toggle"},
+                        animateClose: {"height":"toggle"},
+                        speed: 500,
+                        timeout: 10000,
+                        closable: true,
+                        closeOnSelfClick: true
+                    });
+                });
+            }
+        });
+    }
+
 }(jQuery));
