@@ -1,8 +1,11 @@
 {
     "name": "Avro Keyboard",
     "version": "1.4",
+     "manifest_version": 2,
     "description": "Official Avro Keyboard for Google Chrome",
-    "background_page": "background.html",
+    "background": {
+    "page": "background.html"
+    },
     "page_action" : {
         "default_icon" : "images/icon-16-dim.png",
         "default_title" : "Avro Keyboard"
@@ -14,7 +17,7 @@
     ],
     "icons" : {
         "16" :  "images/icon-16.png",
-        "48" : "images/icon.png",
+        "48" : "images/icon-38.png",
         "128" : "images/icon-128.png"
     },
     "content_scripts" : [
