@@ -34,21 +34,24 @@
 
     var selector = 'textarea, input[type=text]';
     $.noConflict();
-    $(function () {
-        var callback = function (isBangla) {
-            sendStatus(isBangla);
-        };
+    
+    chrome.extension.sendRequest({method: 'hotKey'}, function(response) {
+        $(function () {
+            var callback = function (isBangla) {
+                sendStatus(isBangla);
+            };
 
-        $(selector).avro({bangla: false}, callback);
-        $(window).on('DOMNodeInserted', function () {
-            $(selector).avro({bangla: false}, callback);
-        });
+            $(selector).avro({bangla: false, hotkey: response.hotkey }, callback);
+            $(window).on('DOMNodeInserted', function () {
+                $(selector).avro({bangla: false, hotkey: response.hotkey }, callback);
+            });
 
-        $(selector).on('blur', function () {
-            sendStatus(false);
+            $(selector).on('blur', function () {
+                sendStatus(false);
+            });
         });
     });
-
+    
     if(typeof localStorage.AvroKeyboard === 'undefined') {
         localStorage.AvroKeyboard = true;
         chrome.extension.sendRequest({method: 'popupCount'}, function(response) {
