@@ -45,6 +45,10 @@ chrome.extension.onRequest.addListener(
                 localStorage.popupCount++;
                 sendResponse({popupCount: localStorage.popupCount});
                 break;
+            case 'hotKey':
+                setDefaultHotkey();
+                sendResponse({hotkey: localStorage.hotkey});
+                break;
         }
     }
 );
@@ -61,6 +65,12 @@ function onUpdate() {
 function getVersion() {
     var details = chrome.app.getDetails();
     return details.version;
+}
+
+function setDefaultHotkey(){
+    if (typeof localStorage.hotkey == 'undefined'){
+        localStorage.hotkey = "77";
+    }
 }
 
 // Check if the version has changed.
