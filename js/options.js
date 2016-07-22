@@ -2,7 +2,7 @@ function save_options() {
     var select = document.getElementById("hotkey");
     var hotkey = select.children[select.selectedIndex].value;
     localStorage["hotkey"] = hotkey;
-
+    console.log(hotkey);
     noty({
         text: "Setting Saved",
         layout: "top",
@@ -19,13 +19,23 @@ function save_options() {
     
 }
 
-function populate_options(){
-    for (i = 65 ; i <= 90 ; ++i){
-        $("<option/>", {
-            value: i,
-            html: String.fromCharCode(i)
+function addOption(key,keyName){
+            $("<option/>", {
+            value: key,
+            html: keyName
         }).appendTo("#hotkey");
+}
+
+function populate_options(){
+    //Alphabets
+    for (i = 65 ; i <= 90 ; ++i){
+        addOption(i, String.fromCharCode(i));
     }
+    
+    //Space key
+    addOption(32,"Space");
+    addOption(190," . ");
+
     restore_options();
 }
 
