@@ -2,7 +2,7 @@ function save_options() {
     var select = document.getElementById("hotkey");
     var hotkey = select.children[select.selectedIndex].value;
     localStorage["hotkey"] = hotkey;
-    console.log(hotkey);
+    
     noty({
         text: "Setting Saved",
         layout: "top",
