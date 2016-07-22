@@ -25,11 +25,14 @@
 	=============================================================================
 */
 /*global jQuery, chrome, console, document, window, localStorage */
-chrome.extension.onRequest.addListener(
+chrome.runtime.onMessage.addListener(
     function (request, sender, sendResponse) {
         'use strict';
+        console.log(request);
+        
         switch(request.method) {
             case 'handleStatus':
+                console.log("here");
                 if (!!request.status) {
                     chrome.pageAction.setIcon({tabId: sender.tab.id, path: 'images/icon-16.png'});
                 } else {
