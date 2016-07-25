@@ -25,9 +25,10 @@
 	=============================================================================
 */
 /*global jQuery, chrome, console, document, window, localStorage */
-chrome.extension.onRequest.addListener(
+chrome.runtime.onMessage.addListener(
     function (request, sender, sendResponse) {
         'use strict';
+        
         switch(request.method) {
             case 'handleStatus':
                 if (!!request.status) {

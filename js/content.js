@@ -27,15 +27,15 @@
 /*global jQuery, chrome, console, document, window, noty, localStorage */
 (function ($) {
     'use strict';
-
+    
     function sendStatus(bangla) {
-        chrome.extension.sendRequest({method: 'handleStatus', status: bangla});
+        chrome.runtime.sendMessage({method: 'handleStatus', status: bangla});
     }
 
     var selector = 'textarea, input[type=text]';
     $.noConflict();
     
-    chrome.extension.sendRequest({method: 'hotKey'}, function(response) {
+    chrome.runtime.sendMessage({method: 'hotKey'}, function(response) {
         $(function () {
             var callback = function (isBangla) {
                 sendStatus(isBangla);
@@ -54,7 +54,7 @@
     
     if(typeof localStorage.AvroKeyboard === 'undefined') {
         localStorage.AvroKeyboard = true;
-        chrome.extension.sendRequest({method: 'popupCount'}, function(response) {
+        chrome.runtime.sendMessage({method: 'popupCount'}, function(response) {
             if (response.popupCount <= 3) {
                 $(window).load(function(){
                     noty({
